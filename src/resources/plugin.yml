@@ -1,0 +1,45 @@
+name: PlaytimesX
+version: 0.3
+main: me.ajan12.PlaytimesX.PlaytimesX
+author: ajan_12
+commands:
+  playtime:
+    description: Shows player''s total online-time and rank status.
+    usage: /playtime
+  ranks:
+    description: Shows information about both staff and regular ranks.
+    usage: /ranks
+  plus:
+    description: Removes/Adds a plus to the player.
+    usage: /plus <player>
+  rankup:
+    description: Removes/Adds a rank to the player. Recommended to use instead of PEX variants.
+    usage: /rankup <player> <toRank> [fromRank]
+permissions:
+  playtimesx.plus:
+    description: The permission that defines if player has a + or not.
+    default: false
+  playtimesx.senior:
+    description: The permission that defines if player has reached the rank senior or not.
+    default: false
+  playtimesx.veteran:
+    description: The permission that defines if player has reached the rank veteran or not.
+    default: false
+  playtimesx.legend:
+    description: The permission that defines if player has reached the rank legend or not.
+    default: false
+  playtimesx.oldfag:
+    description: The permission that defines if player has reached the rank oldfag or not.
+    default: false
+  playtimesx.command.plus:
+    description: The permission to use command /plus.
+    default: op
+  playtimesx.command.rankup:
+    description: The permission to use command /rankup.
+    default: op
+  playtimesx.*:
+    description: Gives access to all commands.
+    default: false
+    children:
+      playtimesx.command.plus: true
+      playtimesx.command.rankup: true
