@@ -1,0 +1,115 @@
+settings:
+  auto-save:
+    enabled: true
+    interval-ticks: 100
+
+  # Every player has a profile inside the plugin, containing some of their information.
+  # These settings are for /playtimesx display-profiles command.
+  profile-display:
+    # The amount of profiles that should be placed every page at maximum.
+    entry-per-page: 10
+    # Placeholders:
+    # - %PLAYER-NAME% -> The name of this player profile.
+    # - %TICKS% -> The amount of ticks the player played in the game.
+    # - %FIRST-PLAYED% -> The date the player joined the server for the first time in milliseconds.
+    # - %LAST-PLAYED% -> The date the player joined the server the last time in milliseconds.
+    # - %PLUS% -> Whether the player has a plus or not.
+    display-syntax: "%PLAYER-NAME%:{%TICKS%,%FIRST-PLAYED%,%LAST-PLAYED%,%PLUS%}"
+
+  # Guide: https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html
+  # Used in registration and last login dates displayed in /playtime.
+  date-syntax: "MMM dd yyyy @ HH:mm"
+
+  # These ranks will be displayed in /playtime and given to the player when they unlock it.
+  # Placeholders:
+  # - %PLUS% -> Will be replaced with a "+" if the player has a plus, will be removed if they don't.
+  ranks:
+    - Member 0 &a[Member&6%PLUS%&a]&r
+    - Senior 150 &9[Senior&6%PLUS%&9]&r
+    - Veteran 450 &b[Veteran&6%PLUS%&b]&r
+    - Legend 700 &7[Legend&6%PLUS%&7]&r
+    - Layers 1000 &5[&dOldFag&6%PLUS%&5]&r
+
+  # These ranks will be hidden from the player in /playtime until they unlock them.
+  hidden-ranks:
+    - Layers
+
+localization:
+  enable:
+    vault-not-found: "The plugin \"Vault\" is needed for this plugin to work!"
+    perm-plugin-not-found: "A permissions plugin is needed for this plugin to work!"
+
+  commands:
+    playtimesx:
+      description: "The main admin command for plugin settings."
+      permission-error: "&4You do not have permission to use this command."
+      player-not-found: "&4Could not find the specified player!"
+
+      reload-start: "&aStarting to reload the plugin."
+      # Placeholders:
+      # - %TIME% -> The time it took for plugin to reload in milliseconds.
+      reload-end: "&aReloading the plugin finished in &6%TIME%ms&a."
+
+      profile-display-not-found: "&4Could not find any player profiles."
+      # Placeholders:
+      # - %AMOUNT% -> Amount of player profiles stored.
+      profile-display-header: "&6.oOo._________.o{ &b%AMOUNT% Player Profiles &6}o._________.oOo."
+      # Placeholders:
+      # - %CURRENT-PAGE% -> The player profile page currently displayed.
+      # - %TOTAL-PAGES% -> Total amount of player profile pages.
+      profile-display-footer: "&6.oOo._________.o{ &bPage: %CURRENT-PAGE%&2/&b%TOTAL-PAGES% &6}o._________.oOo."
+
+      recalculate-rankup-start: "&aStarting to recalculating the next rankup time."
+      # Placeholders:
+      # - %TIME% -> The time it took for plugin to recalculate the next rankup in milliseconds.
+      # - %NEXT-RANKUP% -> The amount of ticks until the next rankup.
+      recalculate-rankup-end: "&aRecalculated the next rankup to &6%NEXT-RANKUP% &ain &6%TIME%ms&a."
+
+      # Placeholders:
+      # - %RANKUP% -> The amount of interval ticks the next rankup is scheduled to.
+      next-rankup: "&aThe next rankup is scheduled to &6%RANKUP% &aticks later."
+
+    playtime:
+      description: "Shows a player's total online-time, last login and first join dates and rank status."
+      user-error: "This command can only be applied in game!"
+      player-not-found: "&4Could not find the specified player!"
+
+      # Placeholders:
+      # - %PLAYER-NAME% -> The name of the player.
+      header: "&6.oOo._________.o{ &b%PLAYER-NAME% &6}o._________.oOo."
+
+      # Placeholders:
+      # - %FIRST-PLAYED% -> The date the player joined the server for the first time.
+      # - %LAST-PLAYED% -> The date the player joined the server the last time.
+      dates: "&2Registered: &6%FIRST-PLAYED% &a| &2Last Login: &a%LAST-PLAYED%"
+
+      # Placeholders:
+      # - %DAYS% -> The amount of days the player played.
+      # - %HOURS% -> The amount of hours the player played.
+      # - %MINUTES% -> The amount of minutes the player played.
+      # - %SECONDS% -> The amount of seconds the player played.
+      playtime: "&2Playtime: &6%DAYS% days&a, &6%HOURS% hours&a, &6%MINUTES% minutes &aand &6%SECONDS% seconds"
+
+      # Placeholders:
+      # %RANK-DISPLAY-NAME% -> The display name of the rank.
+      rank-unlocked: "&aYou have unlocked &r%RANK-DISPLAY-NAME%&a."
+
+      # Placeholders:
+      # %RANK-DISPLAY-NAME% -> The display name of the rank.
+      # %HOURS-LEFT% -> The amount of hours left to unlock the rank.
+      rank-locked: "&cYou have &6%HOURS-LEFT% &cmore hours left to unlock &r%RANK-DISPLAY-NAME%&c."
+
+    plus:
+      description: "Grants a player with a plus."
+      permission-error: "&4You do not have permission to use this command."
+      player-not-found: "&4Could not find the specified player!"
+      # Placeholders:
+      # - %PLAYER-NAME% -> The name of the player that has their plus state changed.
+      success: "&aSuccessfully changed the plus state of %PLAYER-NAME%."
+
+    ranks:
+      description: "Shows information about both staff and regular ranks."
+      content:
+        - "This is a placeholder text for the output of /ranks command."
+        - "Please replace me with some other text."
+        - "Oh also I support &1c&2o&3l&4o&5r&6s&r."
